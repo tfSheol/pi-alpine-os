@@ -1,10 +1,8 @@
 #!/bin/sh
 rm -rf \
-    etc \
-    modules
+    etc
 tar -xzf pi-car-robot.apkovl.tar.gz \
     etc/ssh \
     etc/conf.d \
     etc/network \
-    etc/hostapd \
-    modules
+    etc/hostapd
