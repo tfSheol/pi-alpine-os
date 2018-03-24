@@ -1,2 +1,4 @@
 #!/bin/sh
-rm -rf etc modules
+rm -rf \
+    etc \
+    modules
