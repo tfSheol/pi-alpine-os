@@ -4,5 +4,6 @@ gunzip pi-car-robot.apkovl.tar.gz
     etc \
     lib \
     scripts \
-    root
+    root \
+    media
 gzip pi-car-robot.apkovl.tar
