@@ -6,6 +6,7 @@ rc-update add dnsmasq
 rc-update add hostapd
 rc-update add dnsmasq boot
 rc-update add hostapd boot
-scripts/init-config.sh
+/scripts/init-config.sh
+/scripts/persistent-storage.sh
 lbu ci
 
