@@ -7,6 +7,7 @@ rc-update add hostapd
 rc-update add dnsmasq boot
 rc-update add hostapd boot
 /scripts/init-config.sh
+/scripts/java8-install.sh
 /scripts/persistent-storage.sh
 lbu ci
 
