@@ -4,9 +4,9 @@ Download lasted version of Alpine OS for Raspberry PI
 [Alpine OS Downloads](https://www.alpinelinux.org/downloads/)
 * [alpine-rpi-3.7.0-armhf.tar.gz](http://dl-cdn.alpinelinux.org/alpine/v3.7/releases/armhf/alpine-rpi-3.7.0-armhf.tar.gz)
 
-Untar `alpine-rpi-x.x.x-armhf.tar.gz` in SD card and copy paste `pi-car-robot.apkovl.tar.gz` and `usercfg.txt`.
+Uncompress `alpine-rpi-x.x.x-armhf.tar.gz` in SD card and copy paste `pi-car-robot.apkovl.tar.gz` and `usercfg.txt`.
 
-Finely put SD card in a Raspberry PI and boot.
+Finally put SD card in a Raspberry PI and boot.
 
 ## Full install
 Use a main script to do all in one step.
