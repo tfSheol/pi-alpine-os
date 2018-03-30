@@ -1,18 +1,15 @@
 #!/bin/sh
 
-dd if=/dev/zero of=/media/mmcblk0p1/java.img bs=1024 count=0 seek=1048576
-
+dd if=/dev/zero of=/media/mmcblk0p1/java.img bs=2048 count=1
 apk add e2fsprogs
-
 mkfs.ext4 /media/mmcblk0p1/java.img
-
 mount -a
 
 export JAVA_VERSION=8 \
 JAVA_UPDATE=161 \
 JAVA_BUILD=12 \
 JAVA_PATH=2f38c3b165be4555a1fa6e98c45e0808 \
-JAVA_HOME="/media/java/home/"
+JAVA_HOME="/media/java/jvm/default-jvm"
 
 apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip && \
 mkdir "/media/java/tmp" && \
@@ -20,8 +17,8 @@ cd "/media/java/tmp" && \
 wget --header "Cookie: oraclelicense=accept-securebackup-cookie;" \
     "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_UPDATE}-b${JAVA_BUILD}/${JAVA_PATH}/jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" && \
 tar -xzf "jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" && \
-mkdir -p "/usr/lib/jvm" && \
-mv "/media/java/tmp/jdk1.${JAVA_VERSION}.0_${JAVA_UPDATE}" "/usr/lib/jvm/java-${JAVA_VERSION}-oracle" && \
+mkdir -p "/media/java/jvm" && \
+mv "/media/java/tmp/jdk1.${JAVA_VERSION}.0_${JAVA_UPDATE}" "/media/java/jvm/java-${JAVA_VERSION}-oracle" && \
 ln -s "java-${JAVA_VERSION}-oracle" "$JAVA_HOME" && \
 ln -s "$JAVA_HOME/bin/"* "/usr/bin/" && \
 rm -rf "$JAVA_HOME/"*src.zip && \
@@ -49,5 +46,5 @@ wget --header "Cookie: oraclelicense=accept-securebackup-cookie;" \
 unzip -jo -d "${JAVA_HOME}/jre/lib/security" "jce_policy-${JAVA_VERSION}.zip" && \
 rm "${JAVA_HOME}/jre/lib/security/README.txt" && \
 apk del build-dependencies
-#rm "/media/java/tmp/"*
+#rm "/media/java/tmp/*"
 
