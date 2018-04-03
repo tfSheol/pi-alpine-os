@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Test AngularJS</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</header>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <p>{{test}}</p>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+        $http({
+            method : 'POST',
+            url : 'http://127.0.0.1:3000/oauth',
+            data: '{"test":1}',
+            headers: {
+                'Authorization': 'Basic QWRtaW46cGFzc3dvcmQ=',
+                'Content-Type': 'application/json'
+            }
+        }).then(function mySucces(response) {
+            $scope.test = response.data;
+        }, function myError(response) {
+            $scope.test = response.statusText;
+        });
+    });
+</script>
+</body>
+</html>
